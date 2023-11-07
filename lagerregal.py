@@ -6,43 +6,55 @@ import os
 
 
 def filenamer():
+    regalname = "tollesRegal"
     filenameObj = "lagerregal.obj"
     filenameMlt = "lagerregal.obj"
-    return filenameObj,filenameMlt
- 
-
-f = open(filenamer()[0], "a")
-
+    
+    return regalname,filenameObj,filenameMlt
 
 def objHeader():
-    f.write("# lagerregal.py ")
-    f.write("Lorenz Suchy FAPS OBJ File:")
-    f.write("# lagerregal.py ")
+    header = "#Lorenz Suchy FAPS OBJ File:" + "\n" + "#" + filenamer()[0] + "\n" + "mtllib" + filenamer()[2]
+    f.write(header)
+
+
+def regalstreben(h,l,d):
+    
+    contents = "o Regal\n"
+    contents += "g Streben\n"
+    #Ursprungsstrebe
+    #Strebennummerierung:
+    #(0,0) -->
+    #  |   1    2
+    #  v   3    4    
+    
+    points1 = [[[0,0,0],[50,0,0],[50,5,0],[5,5,0],[5,50,0],[0,50,0]],[[0,0,h],[50,0,h],[50,5,h],[5,5,h],[5,50,h],[0,50,h]]]
+    
+
+
+
+
+
 
 
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-h",required=True ,help="height")
-    parser.add_argument("-l",required=True ,help="length")
-    parser.add_argument('-d',required=True ,help="depth")
+    #parser.add_argument("-h",required=True ,help="height")
+    #parser.add_argument("-l",required=True ,help="length")
+    #parser.add_argument('-d',required=True ,help="depth")
 
     args = parser.parse_args()
 
    
-    wbPool = load_workbook(filename = args.pool)
-    wbProj = load_workbook(filename = args.proj)
+    #wbPool = load_workbook(filename = args.pool)
+    #wbProj = load_workbook(filename = args.proj)
 
  
 
     try:
-
-        compareDirs(poolSheet, projSheet)
-
-        if args.licence:
-
-            printGuide()
+        f = open(filenamer()[1], "a")
+        objHeader()
 
     except:
 
