@@ -95,9 +95,6 @@ def regalstreben(h,l,d,e,t):
                         else:
                             contents += str(point + i + add) + " "
 
-
-
-    print(contents)
     f.write(contents)
 
 
