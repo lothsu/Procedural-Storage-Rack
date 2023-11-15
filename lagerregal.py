@@ -1,5 +1,6 @@
 import argparse
 import os
+import random
 
 dim = 0.001
 
@@ -22,6 +23,7 @@ def objHeader():
 def regalstreben(h,l,d,e,t):
     
     contents = "\no Regal"
+    contents += "\ng Streben"
     #Ursprungsstrebe
     #Strebennummerierung:
     #(0,0) --> x
@@ -63,7 +65,7 @@ def regalstreben(h,l,d,e,t):
                 contents += " "
         
         pointNum += 1
-    contents += "\ng Streben"
+    
 
     for j in range(4):
         add = 12 * j
@@ -96,6 +98,47 @@ def regalstreben(h,l,d,e,t):
                             contents += str(point + i + add) + " "
 
     f.write(contents)
+
+def regalbretter(h,l,d,e,t):
+    contents += "\ng Bretter"
+
+    #Strebendicke
+    tStr = 50
+    #Brettdicke
+    tPlk = 20
+
+    hCalc = h
+    currentH = 0
+    points = []
+
+    #Bretterpunktnummerierung
+    #oben
+    #(0,0) --> x
+    #  |   1    2
+    #  v   3    4
+    #  z    
+    #unten
+    #(0,0) --> x
+    #  |   5            6
+    #  v     9      10
+    #
+    #        12     11
+    #      8            7
+    #[x,y,z]
+
+    while hCalc > 100:
+        abstand = random.random() * 900 + 100
+
+
+
+        currentH += abstand
+
+        ponit = [[t,currentH+tStr,t],[l-t,currentH+tStr,t],[l-t,currentH+tStr,d-t],[t,currentH+tStr,d-t],]
+        points.append(point)
+
+        hCalc -= abstand
+
+
 
 
 
