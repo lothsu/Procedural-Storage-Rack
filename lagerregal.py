@@ -99,13 +99,20 @@ def regalstreben(h,l,d,e,t):
 
     f.write(contents)
 
-def regalbretter(h,l,d,e,t):
+def regalbretter(h,l,d,e,t,nBretter = 0):
     contents += "\ng Bretter"
 
     #Strebendicke
     tStr = 50
+    tStrH = 20
     #Brettdicke
     tPlk = 20
+
+
+    if nBretter != 0 and h/nBretter < 100:
+        nBretter = 0
+        print("Zu Viele Bretter! Random Bretter aktiviert")
+
 
     hCalc = h
     currentH = 0
@@ -129,11 +136,9 @@ def regalbretter(h,l,d,e,t):
     while hCalc > 100:
         abstand = random.random() * 900 + 100
 
-
-
         currentH += abstand
 
-        ponit = [[t,currentH+tStr,t],[l-t,currentH+tStr,t],[l-t,currentH+tStr,d-t],[t,currentH+tStr,d-t],]
+        ponit = [[t,currentH+tStr,t],[l-t,currentH+tStr,t],[l-t,currentH+tStr,d-t],[t,currentH+tStr,d-t],[t,currentH,t],[l-t,currentH,t],[l-t,currentH,d-t],[t,currentH,d-t],[t+tStrH,currentH+tPlk,t+tStrH],[l-tStrH,currentH+tPlk,t+tStrH],[l-tStrH,currentH+tPlk,d-t-tStrH],[t+tStrH,currentH+tPlk,d-t-tStrH]]
         points.append(point)
 
         hCalc -= abstand
