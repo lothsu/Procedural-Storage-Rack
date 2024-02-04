@@ -9,7 +9,7 @@ All parameters should be integers and in mm. For other units change the dim in t
 
 |                |short parameter                          |type                      |
 |----------------|-------------------------------|-----------------------------|
-|hight|-hi         |'Isn't this fun?'            |int
+|hight|-hi                    |int
 |length          |-l            |int         |
 |depth         |-d|int|
 |edgelength|-e|int|
